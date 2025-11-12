@@ -34,9 +34,65 @@ To write a Python program that:
 ---
 
 ## 💻 Program
-Add Code here
+      class Nodeq: 
+          def __init__(self, data): 
+              self.data = data 
+              self.next = None
+              self.prev = None
+      
+      class DoublyLinkedList: 
+      
+          def __init__(self): 
+              self.head = None
+          def insert_beginning(self,data):
+              new_node = Nodeq(data)  
+              if(self.head == None): 
+                  self.head = new_node     
+                  return    
+              self.head.prev = new_node   
+              new_node.next = self.head   
+              self.head = new_node    
+      
+          def insert_end(self, new_data): 
+              new_node = Nodeq(new_data) 
+              if self.head is None: 
+                  new_node.prev = None
+                  self.head = new_node 
+                  return 
+              last = self.head 
+              while last.next: 
+                  last = last.next
+              last.next = new_node 
+              new_node.prev = last 
+          def search(self,data):
+              temp=self.head
+              found=0
+              i=0
+              if (temp!=None):
+                  while (temp!=None):
+                      i+=1
+                      if (temp.data==data):
+                          found+=1
+                          break
+                      temp=temp.next
+                  if (found==1):
+                      print(True)
+                  else:
+                      print("The given data doesnot exist:")
+                      print(False)
+              else:
+                  print("The list is empty")
+              
+      
+      Dllist = DoublyLinkedList() 
+      Dllist.insert_beginning(2)
+      Dllist.insert_end(0)
+      Dllist.insert_end(1)
+      Dllist.search(0)
+      Dllist.search(3)  
 
 ## Sample Output
+![image](https://github.com/user-attachments/assets/ad8d16b5-ba02-436b-8414-db0a8e1fe96b)
 
 ## Result
-
+Thus, the program that, Implements a **Doubly Linked List** with functions to insert elements at the beginning and the end of the list, Implements a search function to check if a given element exists in the list is executed and verified successfully.
